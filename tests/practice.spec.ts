@@ -17,35 +17,35 @@ test ("User login", async ({ page })=>{
 
 test ("Double Button click", async ({ page })=>{
 
-    page.goto("/dashboard/practice-components");
+    await page.goto("/dashboard/practice-components");
     let alertMessage="";
 
-    await page.on('dialog', async dialog => {
-        let alertMessage=dialog.message();
+    // Save alert text, then close the alert
+    page.on('dialog', async dialog => {
+        alertMessage=dialog.message();
         await dialog.accept();
-
     })
     await page.getByRole("button", { name: "Double Click Me" }).dblclick();
     console.log(alertMessage);
-    await page.pause();
-})  
+    expect(alertMessage).toBe("double clicked!");
+})
 
 
 
 
 test("Context Button click", async ({ page })=>{
 
-    page.goto("/dashboard/practice-components");
+    await page.goto("/dashboard/practice-components");
     let alertMessage="";
 
-    await page.on('dialog', async dialog => {
-        let alertMessage=dialog.message();
+    // Save alert text, then close the alert
+    page.on('dialog', async dialog => {
+        alertMessage=dialog.message();
         await dialog.accept();
-
     })
     await page.getByRole("button", { name: "Right Click Me" }).click({button:'right'});
     console.log(alertMessage);
-    await page.pause();
-})  
+    expect(alertMessage).toBe("context clicked!");
+})
 
 
