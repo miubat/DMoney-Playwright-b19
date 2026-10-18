@@ -148,5 +148,7 @@ TXNF5KF0Y5XGR,01978989776,01827464816,Deposit Commission,500.00,12.50,1512.50,"1
 ---
 
 ## Automation Video (Headed Mode)
-D:\SQA_SDET_Batch-19\playwright-b19\videos\dmoney_run_2026-10-18.webm
+
+[dmoney_run_2026-10-18.webm](https://github.com/user-attachments/assets/751c746b-40e2-48b9-9e84-cbcbf9d993fd)
+
 
