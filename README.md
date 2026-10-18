@@ -148,6 +148,5 @@ TXNF5KF0Y5XGR,01978989776,01827464816,Deposit Commission,500.00,12.50,1512.50,"1
 ---
 
 ## Automation Video (Headed Mode)
+D:\SQA_SDET_Batch-19\playwright-b19\videos\dmoney_run_2026-10-18.webm
 
-<!-- Drag & drop the .webm/.mp4 from videos/ into this README on GitHub, it will turn into a link like below -->
-https://github.com/user-attachments/assets/your-video-id
