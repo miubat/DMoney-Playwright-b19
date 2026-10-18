@@ -37,7 +37,6 @@ playwright-b19/
 │   ├── csvHelper.ts               # save + read CSV
 │   └── suites.ts                  # @smoke / @regression tags
 ├── output/                        # self_statement_<yyyy-mm-dd>.csv
-├── screenshots/                   # test result screenshots
 └── playwright.dmoney.config.ts    # config for this assignment
 ```
 
@@ -149,6 +148,6 @@ TXNF5KF0Y5XGR,01978989776,01827464816,Deposit Commission,500.00,12.50,1512.50,"1
 
 ## Automation Video (Headed Mode)
 
-[dmoney_run_2026-10-18.webm](https://github.com/user-attachments/assets/751c746b-40e2-48b9-9e84-cbcbf9d993fd)
+https://github.com/user-attachments/assets/751c746b-40e2-48b9-9e84-cbcbf9d993fd
 
 
