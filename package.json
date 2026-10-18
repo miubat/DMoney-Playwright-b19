@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:regression": "playwright test --config=playwright.dmoney.config.ts --grep @regression",
+    "test:smoke": "playwright test --config=playwright.dmoney.config.ts --grep @smoke",
+    "report": "playwright show-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

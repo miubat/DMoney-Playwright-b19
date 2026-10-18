@@ -7,3 +7,10 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 auth.json
+
+# Env / local files
+.env
+.vscode/
+
+# DMoney run artifacts (videos are uploaded to README separately)
+/videos/

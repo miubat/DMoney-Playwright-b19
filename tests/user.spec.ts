@@ -1,6 +1,15 @@
 import {test, expect} from '@playwright/test';
 import { faker } from '@faker-js/faker';
 import { generateRandomNumber } from '../utils/randomNumber';
+import { CreateUserPage, UserData } from '../pages/CreateUserPage.pom';
+import { LoginPage } from '../pages/LoginPage.pom';
+
+// Login before every test, so tests don't depend on an old auth.json
+test.beforeEach(async ({ page })=>{
+    const loginPage=new LoginPage(page);
+    await loginPage.login('admin@test.com', '1234');
+    await expect(loginPage.profileHeading).toBeVisible({ timeout: 15000 });
+})
 
 test("Add new user ",async({page})=>{
     await page.goto("/dashboard/add-user")
@@ -33,13 +42,39 @@ await page.locator("#photoInput").setInputFiles("resources/download.jpg");
 
 await page.getByRole("button", { name: "Create User" }).click();
 
-
+// Message shows on Add User page first, so check it before the redirect
 await expect(page.getByText("User created successfully!")).toBeVisible();
-await page.waitForURL("**/dashboard/users");
+await expect (page).toHaveURL (/dashboard\/users/);
 
 await page.getByRole("textbox", { name: "Search" }).fill(email);
 await expect(page.getByRole("cell", { name: email })).toBeVisible();
 
-await page.pause();
+
+
+})
+
+test ("Create New User ",async ({page})=>{
+    let createUserPage=new CreateUserPage(page);
+    let randomId = generateRandomNumber(1000000,9999999);
+ 
+    await page.goto("/dashboard/add-user");
+    const user:UserData={
+        firstName:faker.person.firstName(),
+        lastName:faker.person.lastName(),
+        email:faker.internet.email(),
+        phoneNumber:`0133${randomId}`,
+        password:'1234',
+        birthDate:'11/10/2000',
+        district:'Dhaka',
+        gender:'Female',
+        photoUrl:'resources/download.jpg'
+    }
+
+
+    await createUserPage.createUser(user);
+    await expect (page).toHaveURL (/dashboard\/users/);
+   await page.pause();
+
+
 
 })

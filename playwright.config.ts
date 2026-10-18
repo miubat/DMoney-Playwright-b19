@@ -14,6 +14,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  testIgnore: '**/dmoney/**',
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -36,9 +37,15 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    // Logs in once and saves auth.json for the other projects
+    {
+      name: 'setup',
+      testMatch: /.*\.setup\.ts/,
+    },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'], storageState: 'auth.json' },
+      dependencies: ['setup'],
     },
 
     // {
